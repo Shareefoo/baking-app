@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Baking App</string>
+
+    <string name="sample_list_load_error">Error loading one or more samples!</string>
+    <string name="sample_not_found_error">Sample not found!</string>
+
+    <string name="recipe_name">Recipe Name</string>
+    <string name="recipe_image">Recipe Image</string>
+    <string name="recipe_ingredients">Recipe Ingredients</string>
+    <string name="recipe_steps">Recipe Steps</string>
+    <string name="add_widget">Add widget</string>
+</resources>

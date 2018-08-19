@@ -1,0 +1,28 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorAccent"
+    android:padding="@dimen/widget_margin">
+
+    <ImageView
+        android:id="@+id/widget_imageView"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_marginBottom="8dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/cake" />
+
+    <!--<TextView-->
+        <!--android:id="@+id/widget_textView"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_below="@id/widget_imageView"-->
+        <!--android:layout_centerHorizontal="true"-->
+        <!--android:text="Nutella Pie"-->
+        <!--android:textColor="@color/colorWhite"-->
+        <!--android:textSize="16sp"-->
+        <!--android:textStyle="bold" />-->
+
+</RelativeLayout>
