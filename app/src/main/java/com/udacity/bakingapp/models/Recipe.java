@@ -2,6 +2,8 @@ package com.udacity.bakingapp.models;
 
 import android.content.Context;
 
+import com.google.gson.annotations.SerializedName;
+
 import org.parceler.Parcel;
 
 import java.io.IOException;
@@ -14,42 +16,40 @@ import java.util.List;
 @Parcel
 public class Recipe {
 
+    @SerializedName("id")
     public int id;
+
+    @SerializedName("name")
     public String name;
-    public List<Ingredient> ingredients;
-    public List<Step> steps;
+
+    @SerializedName("ingredients")
+    public List<Ingredient> ingredients = null;
+
+    @SerializedName("steps")
+    public List<Step> steps = null;
+
+    @SerializedName("servings")
     public int servings;
+
+    @SerializedName("image")
     public String image;
 
-    public Recipe() {
-    }
-
-    public Recipe(int id, String name, List<Ingredient> ingredients, List<Step> steps, int servings, String image) {
-        this.id = id;
-        this.name = name;
-        this.ingredients = ingredients;
-        this.steps = steps;
-        this.servings = servings;
-        this.image = image;
-    }
-
-    public static String readRecipesFromJSON(Context context) {
-        String json = null;
-        try {
-            InputStream is = context.getAssets().open("baking.json");
-            int size = is.available();
-            byte[] buffer = new byte[size];
-            is.read(buffer);
-            is.close();
-            json = new String(buffer, "UTF-8");
-        } catch (IOException ex) {
-            ex.printStackTrace();
-            return null;
-        }
-        return json;
-
-    }
-
+//    public static String readRecipesFromJSON(Context context) {
+//        String json = null;
+//        try {
+//            InputStream is = context.getAssets().open("baking.json");
+//            int size = is.available();
+//            byte[] buffer = new byte[size];
+//            is.read(buffer);
+//            is.close();
+//            json = new String(buffer, "UTF-8");
+//        } catch (IOException ex) {
+//            ex.printStackTrace();
+//            return null;
+//        }
+//        return json;
+//
+//    }
 
 //    public static List<Recipe> parseJSON(Context context, String json) {
 //        List<Recipe> recipes = null;
@@ -70,54 +70,6 @@ public class Recipe {
 //            e.printStackTrace();
 //        }
 //        return recipes;
-//    }
-
-//    public int getId() {
-//        return id;
-//    }
-//
-//    public void setId(int id) {
-//        this.id = id;
-//    }
-//
-//    public String getName() {
-//        return name;
-//    }
-//
-//    public void setName(String name) {
-//        this.name = name;
-//    }
-//
-//    public List<Ingredient> getIngredients() {
-//        return ingredients;
-//    }
-//
-//    public void setIngredients(List<Ingredient> ingredients) {
-//        this.ingredients = ingredients;
-//    }
-//
-//    public List<Step> getSteps() {
-//        return steps;
-//    }
-//
-//    public void setSteps(List<Step> steps) {
-//        this.steps = steps;
-//    }
-//
-//    public int getServings() {
-//        return servings;
-//    }
-//
-//    public void setServings(int servings) {
-//        this.servings = servings;
-//    }
-//
-//    public String getImage() {
-//        return image;
-//    }
-//
-//    public void setImage(String image) {
-//        this.image = image;
 //    }
 
 }

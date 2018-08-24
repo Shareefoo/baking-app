@@ -59,8 +59,8 @@ public class StepDetailsActivity extends AppCompatActivity {
         StepDetailsFragment stepDetailsFragment = new StepDetailsFragment();
 
         Bundle bundle = new Bundle();
-        bundle.putString("video_url", step.videoUrl);
-        bundle.putString("thumbnail_url", step.thumbnailUrl);
+        bundle.putString("video_url", step.videoURL);
+        bundle.putString("thumbnail_url", step.thumbnailURL);
         bundle.putString("description", step.description);
 
         stepDetailsFragment.setArguments(bundle);
@@ -68,7 +68,6 @@ public class StepDetailsActivity extends AppCompatActivity {
         getSupportFragmentManager().beginTransaction()
                 .add(R.id.step_details_fragment_container, stepDetailsFragment)
                 .commit();
-
     }
 
 //    public class StepPagerAdapter extends FragmentStatePagerAdapter {

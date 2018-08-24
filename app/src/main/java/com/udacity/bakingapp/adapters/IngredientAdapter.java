@@ -76,7 +76,7 @@ public class IngredientAdapter extends RecyclerView.Adapter<IngredientAdapter.Vi
         measureTextView.setText(String.valueOf(ingredient.measure));
 
         TextView ingredientTextView = viewHolder.ingredientTextView;
-        ingredientTextView.setText(String.valueOf(ingredient.name));
+        ingredientTextView.setText(String.valueOf(ingredient.ingredient));
     }
 
     // Returns the total count of items in the list

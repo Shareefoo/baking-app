@@ -9,7 +9,7 @@
     android:clickable="true"
     android:focusable="true"
     android:foreground="?android:attr/selectableItemBackground"
-    card_view:cardBackgroundColor="#E6E6E6"
+    card_view:cardBackgroundColor="@color/item_background"
     card_view:cardCornerRadius="8dp"
     card_view:cardElevation="8dp">
 
@@ -18,7 +18,7 @@
         android:layout_height="match_parent">
 
         <ImageView
-            android:id="@+id/imageView_cake"
+            android:id="@+id/imageView_recipe"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_alignParentTop="true"
@@ -32,7 +32,7 @@
             android:id="@+id/textView_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/imageView_cake"
+            android:layout_below="@id/imageView_recipe"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="8dp"
             android:text="@string/recipe_name"

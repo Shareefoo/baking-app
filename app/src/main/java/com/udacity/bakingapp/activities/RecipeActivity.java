@@ -34,16 +34,18 @@ public class RecipeActivity extends AppCompatActivity implements RecipeDetailsFr
         setContentView(R.layout.activity_recipe);
         ButterKnife.bind(this);
 
-        FragmentManager fragmentManager = getSupportFragmentManager();
-
-        RecipeDetailsFragment recipeDetailsFragment = new RecipeDetailsFragment();
-        recipeDetailsFragment.setArguments(getIntent().getExtras());
-
-        fragmentManager.beginTransaction()
-                .add(R.id.recipe_details_fragment_container, recipeDetailsFragment)
-                .commit();
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         if (savedInstanceState == null) {
+
+            FragmentManager fragmentManager = getSupportFragmentManager();
+
+            RecipeDetailsFragment recipeDetailsFragment = new RecipeDetailsFragment();
+            recipeDetailsFragment.setArguments(getIntent().getExtras());
+
+            fragmentManager.beginTransaction()
+                    .add(R.id.recipe_details_fragment_container, recipeDetailsFragment)
+                    .commit();
 
             // Determine if you're creating a two-pane or single-pane display
             if (findViewById(R.id.tablet_layout) != null) {
@@ -72,8 +74,8 @@ public class RecipeActivity extends AppCompatActivity implements RecipeDetailsFr
             StepDetailsFragment stepDetailsFragment = new StepDetailsFragment();
 
             Bundle bundle = new Bundle();
-            bundle.putString("video_url", step.videoUrl);
-            bundle.putString("thumbnail_url", step.thumbnailUrl);
+            bundle.putString("video_url", step.videoURL);
+            bundle.putString("thumbnail_url", step.thumbnailURL);
             bundle.putString("description", step.description);
 
             stepDetailsFragment.setArguments(bundle);

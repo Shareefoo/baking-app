@@ -9,4 +9,6 @@
     <string name="recipe_ingredients">Recipe Ingredients</string>
     <string name="recipe_steps">Recipe Steps</string>
     <string name="add_widget">Add widget</string>
+    <string name="instructions">Instructions</string>
+    <string name="step_instruction">Step Instruction</string>
 </resources>

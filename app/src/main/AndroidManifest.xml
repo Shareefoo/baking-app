@@ -20,7 +20,15 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".activities.RecipeActivity" />
+        <activity
+            android:name=".activities.RecipeActivity"
+            android:parentActivityName=".activities.RecipesActivity">
+            <!-- Parent activity meta-data to support 4.0 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activities.RecipesActivity" />
+
+        </activity>
 
         <activity android:name=".activities.StepDetailsActivity" />
 
