@@ -1,5 +1,7 @@
 package com.udacity.bakingapp.fragments;
 
+import android.appwidget.AppWidgetManager;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,13 +15,14 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.ramotion.foldingcell.FoldingCell;
-import com.udacity.bakingapp.activities.StepDetailsActivity;
 import com.udacity.bakingapp.adapters.IngredientAdapter;
 import com.udacity.bakingapp.R;
 import com.udacity.bakingapp.adapters.StepAdapter;
+import com.udacity.bakingapp.data.SpManager;
 import com.udacity.bakingapp.models.Ingredient;
 import com.udacity.bakingapp.models.Recipe;
 import com.udacity.bakingapp.models.Step;
+import com.udacity.bakingapp.widget.IngredientsWidgetProvider;
 
 import org.parceler.Parcels;
 
@@ -83,10 +86,19 @@ public class RecipeDetailsFragment extends Fragment implements StepAdapter.OnIte
 
         Recipe recipe = (Recipe) Parcels.unwrap(getArguments().getParcelable("recipe"));
 
+        SpManager spManager = SpManager.getInstance(getContext());
+        spManager.putInt("last_visited_recipe", recipe.id);
+
 //        Recipe recipe = (Recipe) Parcels.unwrap(getIntent().getParcelableExtra("recipe"));
 
         List<Ingredient> ingredients = recipe.ingredients;
         mSteps = recipe.steps;
+
+        Intent intent = new Intent(getContext(), IngredientsWidgetProvider.class);
+        intent.setAction(AppWidgetManager.ACTION_APPWIDGET_UPDATE);
+        int[] ids = AppWidgetManager.getInstance(getContext()).getAppWidgetIds(new ComponentName(getContext(), IngredientsWidgetProvider.class));
+        intent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_IDS, ids);
+        getContext().sendBroadcast(intent);
 
         //
         RecyclerView.LayoutManager ingredientLayoutManager = new LinearLayoutManager(getActivity());
